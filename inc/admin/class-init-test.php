@@ -18,7 +18,7 @@
 			include INIT_TEST_DIR_PATH . '/inc/admin/class-init-test-submenu.php';
 
 
-			$blabla = add_menu_page(
+			add_menu_page(
 				'Init Test',
 				'Init Test',
 				'manage_options',
