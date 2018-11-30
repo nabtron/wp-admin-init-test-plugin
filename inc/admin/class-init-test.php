@@ -9,27 +9,32 @@
 		}
 
 		public function page_init() {
-            echo ">>>>>>>>>>>>>>>>>> This code is running in class-init-test.php file with admin_init";
+
 		}
 
 		public function add_menu() {
-			add_menu_page(
+			
+			include INIT_TEST_DIR_PATH . '/inc/admin/class-init-test-home.php';
+			include INIT_TEST_DIR_PATH . '/inc/admin/class-init-test-submenu.php';
+
+
+			$blabla = add_menu_page(
 				'Init Test',
 				'Init Test',
 				'manage_options',
-				INIT_TEST_DIR.'/inc/admin/class-init-test-home.php',
-				'',
+				'init-test-home',
+				array( $init_test_home, 'view_active' ),
 				'dashicons-yes',
 				89
 			);
 
 			add_submenu_page(
-				INIT_TEST_DIR.'/inc/admin/class-init-test-home.php',
+				'init-test-home',
 				'Init Test submenu',
 				'Init Test submenu',
 				'manage_options',
-				INIT_TEST_DIR.'/inc/admin/class-init-test-submenu.php',
-				''
+				'init-test-submenu',
+				array( $init_test_submenu, 'view_active' )
 			);
 		}
 	}

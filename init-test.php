@@ -7,7 +7,7 @@
  * Plugin Name:       init test
  * Plugin URI:        http://nabtron.com/
  * Description:       init test
- * Version:           0.0.1
+ * Version:           0.1
  * Author:            Nabtron
  * Author URI:        http://nabtron.com/
  * License:           GPL-2.0+
@@ -18,9 +18,10 @@
 
 if ( ! defined( 'WPINC' ) ) { die; }
 
-define( 'INIT_TEST_DIR', basename(__DIR__) );
+define( 'INIT_TEST_DIR_NAME', basename(__DIR__) );
+define( 'INIT_TEST_DIR_PATH', plugin_dir_path( __FILE__ ) );
 
-require plugin_dir_path( __FILE__ ) . 'inc/admin/class-init-test.php';
+require INIT_TEST_DIR_PATH . 'inc/admin/class-init-test.php';
 
 function run_init_test() {
 	$plugin = new Init_Test();

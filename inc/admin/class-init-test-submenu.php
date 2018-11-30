@@ -1,6 +1,15 @@
 <?php
+	defined( 'WPINC' ) || exit;
 
-    function save(){
-        echo ">>>>>>>>>>>>>>>>>> This code is running in class-init-test-submenu.php file with admin_init";
+    class Init_Test_Submenu {
+
+        public function __construct() {
+            //add_action( 'admin_init', array( $this, 'save' ) );
+        }
+
+        public function view_active() {
+            require_once('views/init-test-submenu.php');
+        }
     }
-    add_action( 'admin_init', 'save' );
+
+    $init_test_submenu = new Init_Test_Submenu();
